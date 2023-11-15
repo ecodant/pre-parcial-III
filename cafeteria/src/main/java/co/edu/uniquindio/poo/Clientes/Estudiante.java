@@ -16,9 +16,9 @@ public byte getSemestre() {
 }
 @Override
 public float calcularDescuento(){
-    float descuento=0;
+    float descuento = 0;
     for(int i = 0; i<semestre; i++){
-        descuento+=0.012;
+        descuento += 0.012;
   }
     return descuento;
 }
