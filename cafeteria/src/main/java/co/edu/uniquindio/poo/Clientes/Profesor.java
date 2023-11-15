@@ -1,28 +1,20 @@
-package co.edu.uniquindio.poo.Clientes;
+package co.edu.uniquindio.poo.Productos.Bebidas;
 
-public class Profesor extends Cliente {
-    private Categoria categoria;
-
-public Profesor(String cedula,String nombre,String apellido,String correo,Categoria categoria){
-    super(cedula, nombre, apellido, correo);
-    this.categoria=categoria;
-}
-
-public Categoria getCategoria() {
-    return categoria;
-}
-@Override
-public float calcularDescuento(){
-    float descuento=(float)0.03;
-    if(this.categoria == Categoria.ASISTENTE){
-        descuento=(float)0.05;
+public class Nacional extends BebidaAlcoholica {
+    public Nacional(String nombre,int valor,double alcoholContenido){
+        super(nombre, valor, alcoholContenido);
     }
-    else if (this.categoria == Categoria.ASOCIADO){
-        descuento=(float)0.1;
+    @Override
+    public float calcularPrecio(){
+        float precio=valor;
+        double impuesto=0.02*alcoholContenido;
+        double impuestoMax= 0.02*0.5;
+        if (alcoholContenido<=0.5) {
+          precio = (float)(valor+valor*impuesto);
+        }
+        else{
+            precio = (float)(valor+valor*impuestoMax) ;
+        };
+        return precio;
     }
-    else if(this.categoria == Categoria.TITULAR){
-        descuento=(float) 0.16;
-    }
-    return descuento;
-}
 }
