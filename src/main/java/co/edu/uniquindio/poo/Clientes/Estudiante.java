@@ -8,7 +8,7 @@ public class Estudiante extends Cliente {
 public Estudiante(String cedula,String nombre,String apellido,String correo,byte semestre){
     super(cedula, nombre, apellido, correo);
     AssertionUtil.ASSERTION.assertion(semestre>0 && semestre<=10,"el semestre debe estar entre 1 y 10");
-    this.semestre=semestre;
+    this.semestre = semestre;
 }
 
 public byte getSemestre() {
@@ -16,9 +16,9 @@ public byte getSemestre() {
 }
 @Override
 public float calcularDescuento(){
-    float descuento=0;
+    float descuento = 0;
     for(int i = 0; i<semestre; i++){
-        descuento+=0.012;
+        descuento += 0.012;
   }
     return descuento;
 }

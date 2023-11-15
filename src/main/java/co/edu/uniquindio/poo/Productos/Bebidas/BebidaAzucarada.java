@@ -10,7 +10,7 @@ public class BebidaAzucarada extends Producto {
 public BebidaAzucarada(String nombre,int valor,double azucarContenido,TipoBebidaAzucarada tipo){
     super(nombre, valor);
     AssertionUtil.ASSERTION.assertion(azucarContenido>=0 && azucarContenido<=1,"el azucar contenido debe estar entre (0 y 1).");
-    this.azucarContenido=azucarContenido;
+    this.azucarContenido = azucarContenido;
 }
 public double getAzucarContenido(){
     return azucarContenido;
@@ -21,11 +21,11 @@ public TipoBebidaAzucarada getTipoBebidaAzucarada(){
 @Override 
 public float calcularPrecio(){
     float precio=0;
-    if (azucarContenido>0.35) {
-        precio = (float)(valor+valor*0.25);
+    if (azucarContenido > 0.35) {
+        precio = (float) (valor+valor*0.25);
     }
     else{
-        precio = (float)(valor+valor*0.05);
+        precio = (float) (valor+valor*0.05);
     }
     return precio;
 }
