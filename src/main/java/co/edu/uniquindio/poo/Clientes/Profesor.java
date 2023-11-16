@@ -16,13 +16,13 @@ public Categoria getCategoria() {
 public float calcularDescuento(){
     float descuento=(float)0.03;
     if(this.categoria == Categoria.ASISTENTE){
-        descuento=(float)0.05;
+        descuento = (float) 0.05;
     }
     else if (this.categoria == Categoria.ASOCIADO){
-        descuento=(float)0.1;
+        descuento = (float)0.1;
     }
     else if(this.categoria == Categoria.TITULAR){
-        descuento=(float) 0.16;
+        descuento = (float) 0.16;
     }
     return descuento;
 }

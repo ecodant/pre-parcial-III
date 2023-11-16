@@ -9,9 +9,9 @@ public class BebidaAlcoholica extends Producto{
 
     public BebidaAlcoholica(String nombre,int valor,double alcoholContenido, OrigenAlcohol origen){
         super(nombre, valor);
-        AssertionUtil.ASSERTION.assertion(alcoholContenido>0 && alcoholContenido<=1,"el alcohol contenido debe ser superior a (0) e inferior o igual a (1)");
+        AssertionUtil.ASSERTION.assertion(alcoholContenido > 0 && alcoholContenido <= 1,"el alcohol contenido debe ser superior a (0) e inferior o igual a (1)");
         AssertionUtil.ASSERTION.assertion(origen != null,"El origen tiene que ser declarado.");
-        this.alcoholContenido=alcoholContenido;
+        this.alcoholContenido = alcoholContenido;
         this.origen = origen;
     }
     public double getAlcoholContenido(){
@@ -22,20 +22,21 @@ public class BebidaAlcoholica extends Producto{
     }
     @Override  
     public float calcularPrecio(){
+        float precio;
         if (this.origen == OrigenAlcohol.NACIONAL) {
-            float precio = valor;
-            double impuesto = Math.pow(0.02,alcoholContenido);
-            double impuestoMax = Math.pow(0.02,0.5);
-            if (alcoholContenido<=0.5) {
-            precio = (float)(valor + valor * impuesto);  
+            precio = valor;
+            double impuesto = 0.02 * alcoholContenido;
+            double impuestoMax = 0.02 * 0.5;
+            if (alcoholContenido <= 0.5) {
+                precio = (float) (valor + valor * impuesto);  
             }
             else{
-                precio = (float)(valor + valor * impuestoMax) ;
-            };
+                precio = (float) (valor + valor * impuestoMax);
+            }
             return precio;
         }
         else{
-            float precio=(float)(valor*1.3)*(float)(1+(0.3*alcoholContenido));;
+            precio = (float) (valor * 1.3) * (float) (1 + (0.3 * alcoholContenido));
             return precio;
         }
     }
